@@ -15,6 +15,13 @@ public class HelloController {
         return "Hello from Spring Boot!";
     }
 
+    @GetMapping("/getAddress/{city}")
+    public String getAddress(@PathVariable String city) {
+        Address address = new Address(222, city, "bagmati", "nepal");
+
+        return address.getFullAddress();
+    }
+
     @GetMapping("/status")
     public String status() {
         return "API running - " + LocalDate.now();
