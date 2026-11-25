@@ -16,7 +16,6 @@ public class ProductController {
         this.productService = productService;
     }
 
-
     @GetMapping("/")
     public List<Product> all() {
         return productService.getAllProducts();
@@ -29,8 +28,8 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public Product add(@RequestBody Product product) {
-        return productService.addProduct(product);
+    public Product add(@RequestBody CreateProductRequest productRequest) {
+        return productService.addProduct(productRequest);
     }
 
     @GetMapping("/inherited")
