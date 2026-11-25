@@ -11,6 +11,18 @@ public class DigitalProduct extends Product implements Discountable {
         this.fileSizeMB = fileSizeMB;
     }
 
+    public static DigitalProduct from(int id, CreateProductRequest productRequest) {
+        return new DigitalProduct(
+                id,
+                productRequest.name(),
+                productRequest.qty(),
+                productRequest.inStock(),
+                productRequest.unitPrice(),
+                "http://xsdfa.com/file/3434",
+                23.33
+        );
+    }
+
     public String getDownloadUrl() {
         return this.downloadUrl;
     }
